@@ -1,0 +1,17 @@
+- name: ec2 launcher
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: launching ec2
+      ec2:
+        instance_type: t2.micro
+        key_name: ansiblekey
+        image: ami-0cff7528ff583bf9a
+        region: us-east-1
+        group: default
+        count: 1
+        vpc_subnet_id: subnet-06128aa418b1a22d5
+        wait: yes
+        assign_public_ip: yes
+
+~
